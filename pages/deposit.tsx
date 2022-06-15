@@ -1,8 +1,9 @@
-import { FormEventHandler } from "react";
 import { NextPage } from "next";
 import { useForm } from "react-hook-form";
 import clsx from "clsx";
 import styles from "../styles/Deposit.module.css";
+
+const DEPOSIT_EVENT = "ZKOPRU#DEPOSIT_ETH";
 
 type FormData = {
   amount: number;
@@ -13,32 +14,18 @@ const DepositPage: NextPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormData>();
 
   const deposit = handleSubmit(async (data) => {
+    console.log("deposit", data);
     // TODO: use some form library for better typing
-    console.log(data);
-    // get l1 transaction from background?
-
-    // send L1 transaction
-    // depositEtherTx
-    // window.send
-    // await window.ethereum.request({
-    //   method: 'eth_sendTransaction',
-    //   params: [{
-    //     data,
-    //     to,
-    //     value,
-    //     from: this.$store.state.account.accounts[0],
-    //   }]
-    // })
+    window.dispatchEvent(new CustomEvent(DEPOSIT_EVENT, { detail: { data } }));
   });
 
   return (
     <div className={styles.container}>
-      <h1>Deposit Ether</h1>
+      <h1 className={styles.title}>Deposit Ether</h1>
       <form onSubmit={deposit}>
         <div className={styles.formControl}>
           <label htmlFor="amount">Amount</label>
