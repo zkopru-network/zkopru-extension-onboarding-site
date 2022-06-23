@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import fireFoxIcon from '../public/assets/firefox.svg';
+import abstractBg from '../public/assets/desktop-bg.png';
 import Image from 'next/image';
-// import styles from '../styles/Home.module.css';
-// import Layout from '../components/Layout';
 
 const GENERATE_WALLET_EVENT = 'ZKOPRU#GENERATE_WALLET_KEY';
 
@@ -35,33 +34,38 @@ const Home: NextPage = () => {
                 <title>ZKOPRU Extension Onboarding</title>
             </Head>
 
-            <main className="bg-gradient-to-b from-wlilac/25 to-wblue/25">
-                <div className="p-4 pt-24 min-h-screen">
-                    <div className="container mx-auto flex flex-col gap-6 items-center justify-center border-2 backdrop-blur-sm backdrop-opacity-25 bg-purple-50/10 p-16 rounded-3xl max-w-4xl">
-                        <h1 className="text-5xl text-center leading-snug max-w-3xl text-wblue-dark">
+            <main className="bg-[url('/assets/desktop-bg.png')] bg-cover bg-center">
+                <div className="p-4 pt-16 min-h-screen">
+                    <div className="container mx-auto flex flex-col gap-8 p-16 rounded-3xl max-w-4xl">
+                        <h1 className="text-6xl text-center leading-snug max-w-3xl text-white">
                             Transactions are private and cheap on ZKOPRU.
                         </h1>
 
-                        <button className="py-3 px-8 transition-all bg-gradient-to-br from-wblue hover:from-wlilac to-wlilac hover:to-wblue rounded-full text-white flex gap-x-4 justify-between items-center text-lg">
-                            <Image
-                                alt="Firefox Logo"
-                                src={fireFoxIcon}
-                                width={20}
-                                height={20}
-                            />
-                            <p>Install wallet for Firefox</p>
-                        </button>
-                        <div className="grid grid-cols-8 gap-6 p-4 bg-gray-200/50 shadow-sm rounded-2xl">
+                        <div className="flex flex-col items-center gap-3">
+                            <button className="py-3 px-8 hover:-translate-y-2 outline-none focus:outline-2 focus:outline-white/60 outline-offset-4 transition bg-gradient-to-br from-wblue to-wlilac rounded-full text-white flex gap-x-4 justify-between items-center text-lg">
+                                <Image
+                                    alt="Firefox Logo"
+                                    src={fireFoxIcon}
+                                    width={20}
+                                    height={20}
+                                />
+                                <p>Install wallet addon</p>
+                            </button>
+                            <p className="text-sm font-light text-white tracking-wide">
+                                Available only on Firefox, for now 😉
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-8 gap-6 p-4 border-wlilac border-2 rounded-2xl bg-black/20">
                             <div className="flex items-center gap-8 col-span-5">
-                                <p>💡</p>
-                                <p className="text-gray-600 font-normal text-sm">
+                                <p className="filter drop-shadow-lg">💡</p>
+                                <p className="text-gray-200 font-normal text-sm">
                                     After you install our addon, we&apos;ll need
                                     to connect to your MetaMask wallet to sync
                                     with ZKOPRU
                                 </p>
                             </div>
                             <button
-                                className="py-2 px-2 rounded-3xl text-white bg-wlilac/60 transition-colors hover:bg-wlilac col-span-3"
+                                className="py-1 px-2 rounded-full text-white bg-white/10 transition hover:bg-wlilac col-span-3"
                                 onClick={handleClick}
                             >
                                 Connect Ethereum wallet
