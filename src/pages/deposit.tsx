@@ -80,7 +80,7 @@ const DepositPage: NextPage = () => {
 
   const deposit = useCallback(
     async (data: FormData) => {
-      if (data.token === "ETH") {
+      if (data.token === "eth") {
         const submitData = {
           amount: utils.parseEther(data.amount.toString()).toString(),
           fee: utils.parseEther(data.fee.toString()).toString(),
