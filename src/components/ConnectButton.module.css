@@ -1,0 +1,10 @@
+.connectButton{
+  color: white;
+  padding: 12px;
+  border-radius: 24px;
+  border: none;
+  background: linear-gradient(110deg, #405AE0, #BD62E6);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
